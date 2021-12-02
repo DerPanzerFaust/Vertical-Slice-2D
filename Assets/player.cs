@@ -5,12 +5,12 @@ using System.Timers;
 using UnityEngine.UI;
 public class player : MonoBehaviour
 {
-   // private static System.Timers.Timer aTimer;
+    // private static System.Timers.Timer aTimer;
     public float maxhp = 920;
     public float currenthp;
     public hpbar healthbar;
 
-
+    public bool psneffect2;
     public bool damagetaker;
     public Text texts;
 
@@ -20,11 +20,11 @@ public class player : MonoBehaviour
     public float delay;
     //private float timer;
     public float psnmxhp = 920;
-    public float poisonDamage = 5;
+    public float poisonDamage = 1;
     public hpbar psnbar;
     public float psnhp;
     bool poisonEffect;
-    public float poisontickdmg = 5;
+    float poisontickdmg = 5;
 
     // public int poisontimer = 10;
 
@@ -38,22 +38,48 @@ public class player : MonoBehaviour
 
         psnhp = psnmxhp;
         psnbar.SetMaxpsnHP(psnmxhp);
-       // timer = 0;
+        // timer = 0;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(poisonEffect == false)
+
+        if (psnhp < currenthp && psnhp> 2)
+        {
+            Debug.LogError("error in hp");
+            damagetaker = false;
+            poisonEffect = false;
+            StopCoroutine("poisoning");
+            StopAllCoroutines();
+            psnhp += 1;
+            psneffect2 = false;
+        }
+        if (psneffect2 == false)
         {
             texts.GetComponent<Text>().color = Color.white;
         }
+        if (currenthp == 1)
+        {
+            if (Input.GetKey(KeyCode.O))
+            {
+                psndmging(1);
+            }
+            
+        }
+        if (damagetaker == false)
+        {
+            poisontickdmg = 2;
+        }
+       /* if(psnhp > currenthp)
+        {
+            psnhp = currenthp;
+            Debug.LogError("psn > hp");
+        }
+       */
 
 
-      
-
-      
 
         if (damagetaker == true && currenthp > 1)
         {
@@ -69,7 +95,7 @@ public class player : MonoBehaviour
             poisonEffect = false;
             Debug.Log("dmg has stopped");
         }
-        
+
 
         if (currenthp == psnhp)
         {
@@ -77,42 +103,57 @@ public class player : MonoBehaviour
             poisonEffect = false;
             StopCoroutine("poisoning");
             StopAllCoroutines();
+            poisontickdmg = 0;
+            psneffect2 = false;
+
+
 
 
         }
-        if(psnhp == currenthp)
+        if (psnhp == currenthp)
         {
             damagetaker = false;
             poisonEffect = false;
             StopCoroutine("poisoning");
             StopAllCoroutines();
+            poisontickdmg = 0;
+            psneffect2 = false;
+
+
 
         }
-        if(poisonEffect == true)
+        if (psneffect2 == true)
         {
             texts.color = Color.magenta;
         }
-       
+
+        if (psnhp == 0)
+        {
+            Debug.Log("died");
+        }
+
 
         alwdmg();
         dead();
     }
 
-     void FixedUpdate()
+    void FixedUpdate()
     {
         if (poisonEffect == true)
         {
             Debug.Log("poison has started");
-            
+
             StartCoroutine("poisoning");
             // psncontroll();
         }
+
+
     }
 
     void dead()
     {
 
-        if (currenthp == 0)
+        if (psnhp <= 0)
         {
             Debug.Log("died");
         }
@@ -124,28 +165,36 @@ public class player : MonoBehaviour
         healthbar.SetHealth(currenthp);
     }
 
-    void psndmg(float psndamage)
+    void psndmging(float psndamage)
     {
+        damagetaker = true;
         psnhp -= psndamage;
         psnbar.SetpsnHealth(psnhp);
+        
+
+
+
     }
 
 
 
 
     IEnumerator poisoning()
-     {
-         psnhp -= poisontickdmg;
-         psnbar.SetpsnHealth(psnhp);
-        // poisonEffect = false;
-         yield return new WaitForSeconds(0.6f);
-         poisonEffect = true;
-         poisoning();
+    {
+       
+        psnhp -= poisontickdmg;
+        psnbar.SetpsnHealth(psnhp);
+        
+        poisonEffect = false;
+        yield return new WaitForSeconds(0.1f);
+        psneffect2 = true;
+        poisonEffect = true;
+        
 
-     }
+    }
 
 
-   
+
 
     void alwdmg()
     {
@@ -155,13 +204,14 @@ public class player : MonoBehaviour
             if (Input.GetKey(KeyCode.O))
             {
                 Takedmg(1f);
-                
+                psndmging(0.45f);
                 poisonEffect = true;
                 damagetaker = true;
+                
             }
 
         }
-        
+
 
     }
 

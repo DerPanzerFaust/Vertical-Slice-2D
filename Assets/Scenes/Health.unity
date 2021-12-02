@@ -436,12 +436,13 @@ MonoBehaviour:
   healthbar: {fileID: 1622605803}
   damagetaker: 0
   texts: {fileID: 1003010162}
+  nrmlhpdmg: 1
+  psnhpdmg: 0
   delay: 2
   psnmxhp: 920
-  poisonDamage: 2
+  poisonDamage: 5
   psnbar: {fileID: 1892557294}
   psnhp: 0
-  poisontickdmg: 2
 --- !u!4 &692682831
 Transform:
   m_ObjectHideFlags: 0

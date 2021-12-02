@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Timers;
+using UnityEngine.UI;
 public class player : MonoBehaviour
 {
    // private static System.Timers.Timer aTimer;
@@ -11,7 +12,10 @@ public class player : MonoBehaviour
 
 
     public bool damagetaker;
+    public Text texts;
 
+    public bool nrmlhpdmg = true;
+    public bool psnhpdmg = false;
 
     public float delay;
     //private float timer;
@@ -41,21 +45,19 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (damagetaker == true)
+        if(poisonEffect == false)
         {
-
-
+            texts.GetComponent<Text>().color = Color.white;
         }
 
-        if (poisonEffect == true)
-        {
-            //poisen activafte
-        }
+
+      
+
+      
 
         if (damagetaker == true && currenthp > 1)
         {
-            Debug.Log("weerkt");
+            Debug.Log("dmg is toegestaan");
             alwdmg();
 
 
@@ -65,12 +67,9 @@ public class player : MonoBehaviour
         {
             damagetaker = false;
             poisonEffect = false;
-            Debug.Log("ayo");
+            Debug.Log("dmg has stopped");
         }
-        if (damagetaker == true)
-        {
-            Debug.Log("test");
-        }
+        
 
         if (currenthp == psnhp)
         {
@@ -89,8 +88,11 @@ public class player : MonoBehaviour
             StopAllCoroutines();
 
         }
-
-        Debug.Log(psnhp);
+        if(poisonEffect == true)
+        {
+            texts.color = Color.magenta;
+        }
+       
 
         alwdmg();
         dead();
@@ -100,6 +102,8 @@ public class player : MonoBehaviour
     {
         if (poisonEffect == true)
         {
+            Debug.Log("poison has started");
+            
             StartCoroutine("poisoning");
             // psncontroll();
         }
@@ -133,7 +137,7 @@ public class player : MonoBehaviour
      {
          psnhp -= poisontickdmg;
          psnbar.SetpsnHealth(psnhp);
-         poisonEffect = false;
+        // poisonEffect = false;
          yield return new WaitForSeconds(0.6f);
          poisonEffect = true;
          poisoning();
@@ -141,33 +145,7 @@ public class player : MonoBehaviour
      }
 
 
-   /* public void psncontroll()
-    {
-        if (poisonEffect == true)
-        {
-            Debug.LogError("kutshitfucku");
-
-            timer += Time.deltaTime;
-            if (timer > delay)
-            {
-                //do iets
-                timer = 0;
-                psnhp -= poisontickdmg;
-                psnbar.SetpsnHealth(psnhp);
-
-                poisonEffect = true;
-            }
-
-
-            aTimer = new System.Timers.Timer(1000);
-
-
-
-
-        }
-    }
-
-    */
+   
 
     void alwdmg()
     {
@@ -176,25 +154,14 @@ public class player : MonoBehaviour
 
             if (Input.GetKey(KeyCode.O))
             {
-                Takedmg(2f);
-                //Takedmg(1f);
-                // Debug.Log(currenthp);
+                Takedmg(1f);
+                
                 poisonEffect = true;
                 damagetaker = true;
             }
 
         }
-        else if (currenthp == 1)
-        {
-            Debug.Log("working");
-            if (Input.GetKey(KeyCode.O))
-            {
-                psndmg(2f);
-                //psndmg(1f);
-
-            }
-
-        }
+        
 
     }
 

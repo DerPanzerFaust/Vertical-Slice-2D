@@ -30,6 +30,6 @@ public class textchange : MonoBehaviour
 
     public void nmbrlives()
     {
-        hpdate.text = "KR   " + hpee2  + " / 92";
+        hpdate.text = "   " + hpee2  + " / 92";
     }
 }

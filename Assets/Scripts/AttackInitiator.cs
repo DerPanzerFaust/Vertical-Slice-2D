@@ -8,6 +8,8 @@ public class AttackInitiator : MonoBehaviour
     private GameObject BoneWave;
     [SerializeField]
     private GameObject BoneUp;
+    [SerializeField]
+    private GameObject BoneUpWarning;
 
     [SerializeField]
     private GameObject BlasterSides;
@@ -23,18 +25,22 @@ public class AttackInitiator : MonoBehaviour
         {
             instansiateBoneWave();
         }
+
         if (Input.GetKeyDown(KeyCode.Keypad1) && BoneUp != null)
         {
-            instansiateBoneUp();
+            instansiateWarning();
         }
+
         if (Input.GetKeyDown(KeyCode.Keypad4) && BlasterSides != null)
         {
             instansiateBlaster(BlasterSides);
         }
+
         if (Input.GetKeyDown(KeyCode.Keypad5) && BlasterCorner != null)
         {
             instansiateBlaster(BlasterCorner);
         }
+
         if (Input.GetKeyDown(KeyCode.Keypad6) && BlasterDubble != null)
         {
             instansiateBlaster(BlasterDubble);
@@ -46,10 +52,18 @@ public class AttackInitiator : MonoBehaviour
         GameObject boneWave = Instantiate(BoneWave, transform.position, transform.rotation);
         Destroy(boneWave, 5f);
     }
-    public void instansiateBoneUp()
+    public void instansiateWarning()
+    {
+        GameObject boneUpWarning = Instantiate(BoneUpWarning, transform.position, transform.rotation);
+        Destroy(boneUpWarning, 0.5f);
+
+        Invoke("instansiateBoneUp", .2f);
+    }
+    void instansiateBoneUp()
     {
         GameObject boneUp = Instantiate(BoneUp, transform.position, transform.rotation);
         Destroy(boneUp, 15f);
+
     }
 
     public void instansiateBlaster(GameObject blaster)

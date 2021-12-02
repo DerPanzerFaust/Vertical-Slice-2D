@@ -27,13 +27,9 @@ public class Attack_BoneUp : MonoBehaviour
     }
     private void Update()
     {
-        print("MaxHeight" + _maxHeigth);
-        print("TransPos" + transform.position.y);
-
         //Going up to _maxHeight
         if (transform.position.y < _maxHeigth && First == true)
         {
-            print("IK KOM HIER");
             transform.position += new Vector3(0, _speed, 0) * Time.deltaTime;
             //if _maxHeight is reached, going up will stop
             if (transform.position.y >= _maxHeigth)

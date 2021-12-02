@@ -5,8 +5,8 @@ using System.Timers;
 public class player : MonoBehaviour
 {
    // private static System.Timers.Timer aTimer;
-    public int maxhp = 92;
-    public int currenthp;
+    public float maxhp = 920;
+    public float currenthp;
     public hpbar healthbar;
 
 
@@ -15,12 +15,12 @@ public class player : MonoBehaviour
 
     public float delay;
     //private float timer;
-    public int psnmxhp = 92;
-    public double poisonDamage = 1;
+    public float psnmxhp = 920;
+    public float poisonDamage = 5;
     public hpbar psnbar;
-    public int psnhp;
+    public float psnhp;
     bool poisonEffect;
-    public int poisontickdmg = 1;
+    public float poisontickdmg = 5;
 
     // public int poisontimer = 10;
 
@@ -77,10 +77,19 @@ public class player : MonoBehaviour
             damagetaker = false;
             poisonEffect = false;
             StopCoroutine("poisoning");
+            StopAllCoroutines();
+
+
+        }
+        if(psnhp == currenthp)
+        {
+            damagetaker = false;
+            poisonEffect = false;
+            StopCoroutine("poisoning");
+            StopAllCoroutines();
 
         }
 
-       
         Debug.Log(psnhp);
 
         alwdmg();
@@ -104,14 +113,14 @@ public class player : MonoBehaviour
             Debug.Log("died");
         }
     }
-    void Takedmg(int damage)
+    void Takedmg(float damage)
     {
         damagetaker = true;
         currenthp -= damage;
         healthbar.SetHealth(currenthp);
     }
 
-    void psndmg(int psndamage)
+    void psndmg(float psndamage)
     {
         psnhp -= psndamage;
         psnbar.SetpsnHealth(psnhp);
@@ -125,7 +134,7 @@ public class player : MonoBehaviour
          psnhp -= poisontickdmg;
          psnbar.SetpsnHealth(psnhp);
          poisonEffect = false;
-         yield return new WaitForSeconds(2f);
+         yield return new WaitForSeconds(0.6f);
          poisonEffect = true;
          poisoning();
 
@@ -164,9 +173,11 @@ public class player : MonoBehaviour
     {
         if (currenthp > 1)
         {
+
             if (Input.GetKey(KeyCode.O))
             {
-                Takedmg(1);
+                Takedmg(2f);
+                //Takedmg(1f);
                 // Debug.Log(currenthp);
                 poisonEffect = true;
                 damagetaker = true;
@@ -178,7 +189,8 @@ public class player : MonoBehaviour
             Debug.Log("working");
             if (Input.GetKey(KeyCode.O))
             {
-                psndmg(1);
+                psndmg(2f);
+                //psndmg(1f);
 
             }
 

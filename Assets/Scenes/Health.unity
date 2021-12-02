@@ -208,6 +208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056f5f17f2f51e241ab4fa406f2cff20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tijdOver: 2
+  loopentijd: 1
+  NextFire: 0
 --- !u!1 &640361065
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,16 +368,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fbfe23a1dd37554b838c2e10889e35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhp: 92
+  maxhp: 920
   currenthp: 0
   healthbar: {fileID: 1622605803}
   damagetaker: 0
   delay: 2
-  psnmxhp: 92
-  poisonDamage: 1
+  psnmxhp: 920
+  poisonDamage: 2
   psnbar: {fileID: 1892557294}
   psnhp: 0
-  poisontickdmg: 1
+  poisontickdmg: 2
 --- !u!4 &692682831
 Transform:
   m_ObjectHideFlags: 0
@@ -403,6 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpdate: {fileID: 1003010162}
   player: {fileID: 692682830}
+  hpee2: 0
 --- !u!1 &789301484
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,6 +581,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056f5f17f2f51e241ab4fa406f2cff20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tijdOver: 2
+  loopentijd: 1
+  NextFire: 0
 --- !u!4 &1508364384
 Transform:
   m_ObjectHideFlags: 0
@@ -794,7 +801,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 92
+  m_MaxValue: 920
   m_WholeNumbers: 1
   m_Value: 34
   m_OnValueChanged:

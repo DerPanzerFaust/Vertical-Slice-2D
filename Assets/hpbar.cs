@@ -10,23 +10,23 @@ public class hpbar : MonoBehaviour
     public Slider slider;
     public Slider slider2;
 
-    public void Setmaxhealth(int health)
+    public void Setmaxhealth(float health)
     {
         slider.maxValue = health;
         slider.value = health;
         
     }
-    public void SetHealth(int health)
+    public void SetHealth(float health)
     {
         slider.value = health;
        
     }
-    public void SetMaxpsnHP(int health)
+    public void SetMaxpsnHP(float health)
     {
         slider2.maxValue = health;
         slider2.value = health;
     }
-    public void SetpsnHealth(int health)
+    public void SetpsnHealth(float health)
     {
         
         slider2.value = health;

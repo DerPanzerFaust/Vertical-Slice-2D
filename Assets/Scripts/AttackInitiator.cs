@@ -8,10 +8,13 @@ public class AttackInitiator : MonoBehaviour
     private GameObject BoneWave;
     [SerializeField]
     private GameObject BoneUp;
+
     [SerializeField]
-    private GameObject Blasters;
+    private GameObject BlasterSides;
     [SerializeField]
-    private GameObject BlasterSpawnPoint;
+    private GameObject BlasterCorner;
+    [SerializeField]
+    private GameObject BlasterDubble;
 
 
     private void Update()
@@ -23,6 +26,18 @@ public class AttackInitiator : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Keypad1) && BoneUp != null)
         {
             instansiateBoneUp();
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad4) && BlasterSides != null)
+        {
+            instansiateBlaster(BlasterSides);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad5) && BlasterCorner != null)
+        {
+            instansiateBlaster(BlasterCorner);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad6) && BlasterDubble != null)
+        {
+            instansiateBlaster(BlasterDubble);
         }
     }
 
@@ -37,9 +52,9 @@ public class AttackInitiator : MonoBehaviour
         Destroy(boneUp, 15f);
     }
 
-    public void instansiateBlasters()
+    public void instansiateBlaster(GameObject blaster)
     {
-        GameObject blasters = Instantiate(Blasters, BlasterSpawnPoint.transform.position, BlasterSpawnPoint.transform.rotation);
-        Destroy(blasters, 15f);
+        GameObject blasters = Instantiate(blaster, transform.position, transform.rotation);
+        Destroy(blasters, 3f);
     }
 }

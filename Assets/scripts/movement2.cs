@@ -72,16 +72,19 @@ namespace movement2
                     Debug.Log("Blue mode");
                     spriteswap();
                     redmode = true;
-                    gravity.simulated = false;
+                    gravity.velocity = new Vector2(0, 0);
+                    gravity.angularDrag = 0;
+                    gravity.gravityScale = 0;
 
 
                 }
-                else if(redmode == true)
+                else if (redmode == true)
                 {
                     spriteRenderer.sprite = sprite2;
                     Debug.Log("Normal");
                     redmode = false;
-                    gravity.simulated = true;
+                    gravity.angularDrag = 0.05f;
+                    gravity.gravityScale = 1;
 
                 }
 

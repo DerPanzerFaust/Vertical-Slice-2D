@@ -5,34 +5,33 @@ using UnityEngine;
 public class Animationess : MonoBehaviour
 {
 
-    public Transform a;
-
-    public Animation anim;
-
-    // Start is called before the first frame update
-    void Start()
+    // public Transform Playerpos;
+    public GameObject player;
+    public Animator anim;
+    private bool animdonecheck = false;
+    private void FixedUpdate()
     {
-        a = a.GetComponent<Transform>();
-        Debug.Log(a.position);
-        anim = gameObject.GetComponent<Animation>();
-        anim["tets"].layer = 123;
-
+        // Debug.Log(Playerpos.position);
+        Debug.Log(player.transform.position);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (anim.isPlaying)
-        {
-            return;
-        }
-
         if (Input.GetKeyDown(KeyCode.I))
         {
-            Debug.Log("Spinning");
-            anim.Play("tets");
+            player.GetComponent<Animator>().Play("testing");
+            animdonecheck = true;
         }
+       /* if ( anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+        {  
+            if(animdonecheck == true)
+            {
+                //If normalizedTime is 0 to 1 means animation is playing, if greater than 1 means finished
+                Debug.Log("not playing");
+                player.GetComponent<Animator>().Play("testing2");
 
+            }
+        }*/
 
     }
 }

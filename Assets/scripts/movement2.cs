@@ -65,11 +65,11 @@ public class movement2 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P) || _pushDownAttack._movementUpdate)
         {
-            Debug.Log("a");
+            //Debug.Log("a");
             if (redmode == false)
             {
                 spriteRenderer.sprite = sprite1;
-                Debug.Log("Blue mode");
+                //Debug.Log("Blue mode");
                 spriteswap();
                 redmode = true;
                 gravity.velocity = new Vector2(0, 0);
@@ -82,7 +82,7 @@ public class movement2 : MonoBehaviour
             else if (redmode == true)
             {
                 spriteRenderer.sprite = sprite2;
-                Debug.Log("Normal");
+                //Debug.Log("Normal");
                 redmode = false;
                 gravity.angularDrag = 0.05f;
                 if (_pushDownAttack._movementUpdate == false)

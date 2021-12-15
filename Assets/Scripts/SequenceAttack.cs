@@ -29,34 +29,42 @@ public class SequenceAttack : MonoBehaviour
             //push
             _pushDownAttack._Attack = true; //PushDown
             //Bones
-            WaitAndAttack(1f, 1); //BoneUp
-            WaitAndAttack(1f, 2); //BoneWave
+            WaitAndAttack(1f); //BoneUp 1
+            //WaitAndAttack(1f); //BoneWave 2
             //Blasters
-            WaitAndAttack(1f, 3); //BlasterSides
-            WaitAndAttack(1f, 4); //BlasterCorners
-            WaitAndAttack(1f, 3); //BlasterSides
-            WaitAndAttack(1f, 5); //BlasterDubble
+            //WaitAndAttack(1f); //BlasterSides 3
+            //WaitAndAttack(1f); //BlasterCorners 4
+            //WaitAndAttack(1f); //BlasterSides 3
+            //WaitAndAttack(1f); //BlasterDubble 5
 
         }
     }
 
-    public void WaitAndAttack(float time, int attack)
+    public void WaitAndAttack(float time)
     {
-        StartCoroutine(_wait(time, attack));
+        StartCoroutine(_wait(time));
 
     }
 
-    IEnumerator _wait(float time, int attack)
+    IEnumerator _wait(float time)
     {
-        //Sets the attack
-        _attackInitiator.WhatAttack = attack;
-        Debug.Log("HIER KOM IK");
-
+        //Bones
         yield return new WaitForSeconds(time);
+        _attackInitiator.WhatAttack = 1;
+        yield return new WaitForSeconds(time);
+        _attackInitiator.WhatAttack = 2;
+
+        //Blasters
+        yield return new WaitForSeconds(time);
+        _attackInitiator.WhatAttack = 3;
+        yield return new WaitForSeconds(time);
+        _attackInitiator.WhatAttack = 4;
+        yield return new WaitForSeconds(time);
+        _attackInitiator.WhatAttack = 3;
+        yield return new WaitForSeconds(time);
+        _attackInitiator.WhatAttack = 5;
 
     }
-
-
 
     public void Setup()
     {

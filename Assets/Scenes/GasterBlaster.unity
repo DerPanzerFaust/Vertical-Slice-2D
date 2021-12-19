@@ -196,6 +196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c38c12e88e875d40bd36b749720069d, type: 3}
+--- !u!1 &68001566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2370253856126912128, guid: 3c38c12e88e875d40bd36b749720069d, type: 3}
+  m_PrefabInstance: {fileID: 68001565}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &100308649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,6 +2098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1937725358}
   - component: {fileID: 1937725357}
+  - component: {fileID: 1937725359}
   m_Layer: 0
   m_Name: BlasterInit
   m_TagString: Untagged
@@ -2131,6 +2137,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1937725359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937725356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da80244d1b3f904f8fe57dfd45158c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoneWave: {fileID: 0}
+  BoneUp: {fileID: 0}
+  BlasterSides: {fileID: 523867824400830959, guid: 5450f8f2bafd8294fb67d13b6480c6f9, type: 3}
+  BlasterCorner: {fileID: 2076361835}
+  BlasterDubble: {fileID: 68001566}
 --- !u!1001 &2076361834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2232,6 +2255,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ab43aa6023407249b1bee56befcc561, type: 3}
+--- !u!1 &2076361835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 342306088501353569, guid: 7ab43aa6023407249b1bee56befcc561, type: 3}
+  m_PrefabInstance: {fileID: 2076361834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2135409684
 GameObject:
   m_ObjectHideFlags: 0

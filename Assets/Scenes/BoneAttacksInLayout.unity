@@ -971,6 +971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 938302031}
   - component: {fileID: 938302030}
+  - component: {fileID: 938302032}
   m_Layer: 0
   m_Name: BoneWaveInit
   m_TagString: Untagged
@@ -992,8 +993,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoneWave: {fileID: 4818872100698064433, guid: 8e8893d3ec3e7d84b8a61bc40f770916, type: 3}
   BoneUp: {fileID: 0}
-  Blasters: {fileID: 0}
-  BlasterSpawnPoint: {fileID: 0}
+  BlasterSides: {fileID: 0}
+  BlasterCorner: {fileID: 0}
+  BlasterDubble: {fileID: 0}
 --- !u!4 &938302031
 Transform:
   m_ObjectHideFlags: 0
@@ -1008,6 +1010,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &938302032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938302029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da80244d1b3f904f8fe57dfd45158c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoneWave: {fileID: 4818872100698064433, guid: 8e8893d3ec3e7d84b8a61bc40f770916, type: 3}
+  BoneUp: {fileID: 0}
+  BlasterSides: {fileID: 0}
+  BlasterCorner: {fileID: 0}
+  BlasterDubble: {fileID: 0}
 --- !u!1 &1033177105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,6 +1350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1149191742}
   - component: {fileID: 1149191741}
+  - component: {fileID: 1149191743}
   m_Layer: 0
   m_Name: BoneUpInit
   m_TagString: Untagged
@@ -1352,8 +1372,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoneWave: {fileID: 0}
   BoneUp: {fileID: 8973338689346575470, guid: 1051d56dbc4fed242835655c4f20061e, type: 3}
-  Blasters: {fileID: 0}
-  BlasterSpawnPoint: {fileID: 0}
+  BlasterSides: {fileID: 0}
+  BlasterCorner: {fileID: 0}
+  BlasterDubble: {fileID: 0}
 --- !u!4 &1149191742
 Transform:
   m_ObjectHideFlags: 0
@@ -1368,6 +1389,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1149191743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149191740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da80244d1b3f904f8fe57dfd45158c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoneWave: {fileID: 0}
+  BoneUp: {fileID: 8973338689346575470, guid: 1051d56dbc4fed242835655c4f20061e, type: 3}
+  BlasterSides: {fileID: 0}
+  BlasterCorner: {fileID: 0}
+  BlasterDubble: {fileID: 0}
 --- !u!1 &1357999000
 GameObject:
   m_ObjectHideFlags: 0

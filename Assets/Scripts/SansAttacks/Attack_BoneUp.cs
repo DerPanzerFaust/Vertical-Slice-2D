@@ -26,9 +26,9 @@ public class Attack_BoneUp : MonoBehaviour
         NextFire = Time.time + fireRate;
     }
     private void Update()
-    {
+    {/*
         print("MaxHeight" + _maxHeigth);
-        print("TransPos" + transform.position.y);
+        print("TransPos" + transform.position.y);*/
 
         //Going up to _maxHeight
         if (transform.position.y < _maxHeigth && First == true)

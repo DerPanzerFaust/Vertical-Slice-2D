@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackInitiator : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
     [SerializeField]
     private GameObject BoneWave;
@@ -15,27 +15,36 @@ public class AttackInitiator : MonoBehaviour
     private GameObject BlasterCorner;
     [SerializeField]
     private GameObject BlasterDubble;
+    
 
+    void Start()
+    {
+
+      
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad2) && BoneWave != null)
+        if (Input.GetKeyDown(KeyCode.L) && BoneWave != null)
         {
             instansiateBoneWave();
+            
         }
-        if (Input.GetKeyDown(KeyCode.Keypad1) && BoneUp != null)
+        if (Input.GetKeyDown(KeyCode.M) && BoneUp != null)
         {
             instansiateBoneUp();
         }
-        if (Input.GetKeyDown(KeyCode.Keypad4) && BlasterSides != null)
+        if (Input.GetKeyDown(KeyCode.N) && BlasterSides != null)
         {
             instansiateBlaster(BlasterSides);
+         
         }
-        if (Input.GetKeyDown(KeyCode.Keypad5) && BlasterCorner != null)
+        if (Input.GetKeyDown(KeyCode.K) && BlasterCorner != null)
         {
             instansiateBlaster(BlasterCorner);
+          
         }
-        if (Input.GetKeyDown(KeyCode.Keypad6) && BlasterDubble != null)
+        if (Input.GetKeyDown(KeyCode.J) && BlasterDubble != null)
         {
             instansiateBlaster(BlasterDubble);
         }
@@ -57,4 +66,7 @@ public class AttackInitiator : MonoBehaviour
         GameObject blasters = Instantiate(blaster, transform.position, transform.rotation);
         Destroy(blasters, 3f);
     }
+
+    
+
 }

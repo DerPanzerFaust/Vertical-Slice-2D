@@ -48,7 +48,6 @@ public class player : MonoBehaviour
 
         if (psnhp < currenthp && psnhp> 2)
         {
-            Debug.LogError("error in hp");
             damagetaker = false;
             poisonEffect = false;
             StopCoroutine("poisoning");

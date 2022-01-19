@@ -63,7 +63,7 @@ public class movement2 : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.P) || _pushDownAttack._movementUpdate)
+      //  if (Input.GetKeyDown(KeyCode.P) || _pushDownAttack._movementUpdate)
         {
             //Debug.Log("a");
             if (redmode == false)
@@ -76,7 +76,8 @@ public class movement2 : MonoBehaviour
                 gravity.angularDrag = 0;
                 gravity.gravityScale = 0;
 
-                _pushDownAttack._movementUpdate = false;
+
+              //  _pushDownAttack._movementUpdate = false;
             }
 
             else if (redmode == true)
@@ -85,12 +86,12 @@ public class movement2 : MonoBehaviour
                 //Debug.Log("Normal");
                 redmode = false;
                 gravity.angularDrag = 0.05f;
-                if (_pushDownAttack._movementUpdate == false)
-                {
-                    gravity.gravityScale = 1;
-                }
+                  if (_pushDownAttack._movementUpdate == false)
+                  {
+                      gravity.gravityScale = 1;
+                  }
 
-                _pushDownAttack._movementUpdate = false;
+                  _pushDownAttack._movementUpdate = false; 
             }
 
 

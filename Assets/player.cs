@@ -25,6 +25,7 @@ public class player : MonoBehaviour
     public float psnhp;
     bool poisonEffect;
     float poisontickdmg = 5;
+    
 
     // public int poisontimer = 10;
 
@@ -40,13 +41,27 @@ public class player : MonoBehaviour
         psnbar.SetMaxpsnHP(psnmxhp);
         // timer = 0;
 
+        /*
+
+        Transform bones = Instantiate(Bonesprefab) as Transform;
+        Physics.IgnoreCollision(bones.GetComponent<Collider>(), GetComponent<Collider>());
+
+
+        */
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (psnhp < currenthp && psnhp> 2)
+
+
+       
+
+
+
+        if (psnhp < currenthp && psnhp > 2)
         {
             damagetaker = false;
             poisonEffect = false;
@@ -59,41 +74,32 @@ public class player : MonoBehaviour
         {
             texts.GetComponent<Text>().color = Color.white;
         }
-        if (currenthp == 1)
-        {
-            if (Input.GetKey(KeyCode.O))
-            {
-                psndmging(1);
-            }
-            
-        }
+      
+       
         if (damagetaker == false)
         {
             poisontickdmg = 2;
         }
-       /* if(psnhp > currenthp)
-        {
-            psnhp = currenthp;
-            Debug.LogError("psn > hp");
-        }
-       */
+        /* if(psnhp > currenthp)
+         {
+             psnhp = currenthp;
+             Debug.LogError("psn > hp");
+         }
+        */
+       
+
+
 
 
 
         if (damagetaker == true && currenthp > 1)
         {
             Debug.Log("dmg is toegestaan");
-            alwdmg();
+            //alwdmg();
 
 
         }
 
-        if (Input.GetKeyUp(KeyCode.O))
-        {
-            damagetaker = false;
-            poisonEffect = false;
-            Debug.Log("dmg has stopped");
-        }
 
 
         if (currenthp == psnhp)
@@ -132,7 +138,7 @@ public class player : MonoBehaviour
         }
 
 
-        alwdmg();
+
         dead();
     }
 
@@ -169,7 +175,7 @@ public class player : MonoBehaviour
         damagetaker = true;
         psnhp -= psndamage;
         psnbar.SetpsnHealth(psnhp);
-        
+
 
 
 
@@ -180,38 +186,102 @@ public class player : MonoBehaviour
 
     IEnumerator poisoning()
     {
-       
+
         psnhp -= poisontickdmg;
         psnbar.SetpsnHealth(psnhp);
-        
+
         poisonEffect = false;
         yield return new WaitForSeconds(0.1f);
         psneffect2 = true;
         poisonEffect = true;
-        
+
 
     }
 
 
-
-
-    void alwdmg()
+    private void OnTriggerExit(Collider other)
     {
-        if (currenthp > 1)
+        if (other.gameObject.CompareTag("Bones"))
         {
+            damagetaker = false;
+            poisonEffect = false;
+            Debug.Log("dmg has stopped");
+        }
+    }
 
-            if (Input.GetKey(KeyCode.O))
+    private void OnTriggerStay(Collider other)
+    {
+
+
+        if (other.gameObject.CompareTag("Bones"))
+        {
+            Debug.Log("LES FUCKIN GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+            if (currenthp > 1)
             {
+
                 Takedmg(1f);
                 psndmging(0.45f);
                 poisonEffect = true;
                 damagetaker = true;
                 
             }
+            else if(currenthp == 1)
+            {
+                if (currenthp == 1)
+                {
+                    psndmging(1);
+                    Debug.Log("poop");
+
+                }
+
+            }
+
+
+
+            /*
+
+            void alwdmg()
+            {
+
+                 if (currenthp > 1)
+            {
+
+
+
+
+                {
+                    Takedmg(1f);
+                    psndmging(0.45f);
+                    poisonEffect = true;
+                    damagetaker = true;
+
+                }
+
+            }
+
+
+
+
+
+
+
+
+                    if (Input.GetKey(KeyCode.O))
+                    {
+                        Takedmg(1f);
+                        psndmging(0.45f);
+                        poisonEffect = true;
+                        damagetaker = true;
+
+                    }
+
+                }
+
+
+            }
+            */
+
 
         }
-
-
     }
-
 }

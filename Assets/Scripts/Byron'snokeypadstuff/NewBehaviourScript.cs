@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackInitiator : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
     [SerializeField]
     private GameObject BoneWave;
@@ -15,35 +15,38 @@ public class AttackInitiator : MonoBehaviour
     private GameObject BlasterCorner;
     [SerializeField]
     private GameObject BlasterDubble;
+    
 
-    public int WhatAttack;
+    void Start()
+    {
+
+      
+    }
 
     private void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Keypad1) || WhatAttack == 1) && BoneUp != null)
-        {
-            instansiateBoneUp();
-            WhatAttack = 0;
-        }
-        if ((Input.GetKeyDown(KeyCode.Keypad2) || WhatAttack == 2) && BoneWave != null)
+        if (Input.GetKeyDown(KeyCode.L) && BoneWave != null)
         {
             instansiateBoneWave();
-            WhatAttack = 0;
+            
         }
-        if ((Input.GetKeyDown(KeyCode.Keypad4) || WhatAttack == 3) && BlasterSides != null)
+        if (Input.GetKeyDown(KeyCode.M) && BoneUp != null)
+        {
+            instansiateBoneUp();
+        }
+        if (Input.GetKeyDown(KeyCode.N) && BlasterSides != null)
         {
             instansiateBlaster(BlasterSides);
-            WhatAttack = 0;
+         
         }
-        if ((Input.GetKeyDown(KeyCode.Keypad5) || WhatAttack == 4) && BlasterCorner != null)
+        if (Input.GetKeyDown(KeyCode.K) && BlasterCorner != null)
         {
             instansiateBlaster(BlasterCorner);
-            WhatAttack = 0;
+          
         }
-        if ((Input.GetKeyDown(KeyCode.Keypad6) || WhatAttack == 5) && BlasterDubble != null)
+        if (Input.GetKeyDown(KeyCode.J) && BlasterDubble != null)
         {
             instansiateBlaster(BlasterDubble);
-            WhatAttack = 0;
         }
     }
 
@@ -63,4 +66,7 @@ public class AttackInitiator : MonoBehaviour
         GameObject blasters = Instantiate(blaster, transform.position, transform.rotation);
         Destroy(blasters, 3f);
     }
+
+    
+
 }

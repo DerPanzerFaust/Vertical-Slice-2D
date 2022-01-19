@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Border
+  - Bones
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Attacks
   - Water
   - UI
   - 

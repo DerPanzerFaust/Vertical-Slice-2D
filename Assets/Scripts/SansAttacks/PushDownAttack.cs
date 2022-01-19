@@ -14,6 +14,8 @@ public class PushDownAttack : MonoBehaviour
     private float _pushPower;
     private bool _pushDown = false;
 
+    public bool _Attack = false;
+
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -25,8 +27,9 @@ public class PushDownAttack : MonoBehaviour
     private void Update()
     {
         //When NumbPad 7 is presed 'PushDown();' will be activated 
-        if (Input.GetKeyDown(KeyCode.Keypad7))
+        if (Input.GetKeyDown(KeyCode.Keypad7) || _Attack == true)
         {
+            _Attack = false;
             _pushDown = true;
         }
 
